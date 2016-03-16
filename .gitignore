@@ -2,7 +2,11 @@
 .env.*.php
 .env.php
 .env
-
+/vendor
+/etc
+.vagrant
+/node_modules
+.idea/
 # =========================
 # Operating System Files
 # =========================
