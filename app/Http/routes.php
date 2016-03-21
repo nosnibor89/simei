@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('user.login');
-});
-
 Route::get('test', function () {
     return view('test');
 });
@@ -34,18 +30,40 @@ Route::get('test', function () {
 
 //Main group for my Restfull app Simei
 Route::group(['middleware' => ['web']], function () {
-    //
+
+
+
+    Route::auth();
+    // Route::controllers([
+    // 'account' => 'Auth\AuthController',
+    // 'password' => 'Auth\PasswordController',
+    // ]);
+
+    Route::get('/', 'HomeController@index');
+
+    Route::get('tech/home', 'HomeController@techIndex');
+    Route::get('user/home', 'HomeController@userIndex');
+
     Route::resource('user', 'UserController',['only' => [
     'index', 'show'
     ]]);
+
     Route::resource('fail', 'FailController',['only' => [
     'index']]);
+
     Route::resource('status', 'StatusController',['only' => [
     'index']]);
+
     Route::resource('priority', 'PriorityController',['only' => [
     'index']]);
+
     Route::resource('impact', 'ImpactController',['only' => [
     'index']]);
+
     Route::resource('taskorder', 'TaskorderController');
+
+    Route::get('error', function(){
+        return view('errors.503');
+    });
 
 });

@@ -1,0 +1,23 @@
+.sidebar{
+    background-color: #EEEEEE;
+
+}
+
+.nav>li>a:hover, .nav>li>a:focus{
+    background-color: rgba(153, 153, 153, 0.26);
+}
+
+.btn-search{
+    height: 36px;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        /*margin: 0;*/
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+
+}
