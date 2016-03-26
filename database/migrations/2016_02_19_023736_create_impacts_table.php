@@ -14,7 +14,7 @@ class CreateImpactsTable extends Migration
     {
         Schema::create('impacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('description', 100)->nullable();
             $table->timestamps();
         });

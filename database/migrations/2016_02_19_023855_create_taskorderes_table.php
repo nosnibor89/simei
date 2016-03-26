@@ -26,7 +26,7 @@ class CreateTaskorderesTable extends Migration
             $table->foreign('user')->references('id')->on('users');
             $table->foreign('fail')->references('id')->on('fails');
             $table->foreign('status')->references('id')->on('status');
-            $table->foreign('technician')->references('id')->on('technicians');
+            $table->foreign('technician')->references('id')->on('users');
         });
     }
 

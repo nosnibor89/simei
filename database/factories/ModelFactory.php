@@ -15,47 +15,39 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
+        'role' => 'user'
     ];
 });
 
 $factory->define(App\Status::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->text,
-        'description' => $faker->paragraph(1),
+        'name' => $faker->text(30),
+        'description' => $faker->text(30),
     ];
 });
 
 
 $factory->define(App\Impact::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->text,
-        'description' => $faker->paragraph(1),
+        'name' => $faker->text(30),
+        'description' => $faker->text(30),
     ];
 });
 
 $factory->define(App\Priority::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->text,
-        'description' => $faker->paragraph(1),
-    ];
-});
-
-$factory->define(App\Technician::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'name' => $faker->text(30),
+        'description' => $faker->text(30),
     ];
 });
 
 $factory->define(App\Fail::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'priority' => $faker->numberBetween($min = 1, $max = 2),
-        'impact' => $faker->numberBetween($min = 1, $max = 2),
+        'priority' => $faker->randomElement($array = array(1, 2)),
+        'impact' => $faker->randomElement($array = array(1, 2)),
     ];
 });
 
@@ -64,9 +56,9 @@ $factory->define(App\Taskorder::class, function (Faker\Generator $faker) {
         'title' => $faker->title,
         'desription' => $faker->title,
         'startDate' => $faker->dateTime($max = 'now'),
-        'user' => $faker->numberBetween($min = 1, $max = 2),
-        'technician' => $faker->numberBetween($min = 1, $max = 2),
-        'fail' => $faker->numberBetween($min = 1, $max = 2),
-        'status' => $faker->numberBetween($min = 1, $max = 2)
+        'user' => $faker->randomElement($array = array(1, 2)),
+        'technician' => $faker->randomElement($array = array(1, 2)),
+        'fail' => $faker->randomElement($array = array(1, 2)),
+        'status' => $faker->randomElement($array = array(1, 2)),
     ];
 });
