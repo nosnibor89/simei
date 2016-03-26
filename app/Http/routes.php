@@ -34,16 +34,20 @@ Route::group(['middleware' => ['web']], function () {
 
 
     Route::auth();
-    // Route::controllers([
-    // 'account' => 'Auth\AuthController',
-    // 'password' => 'Auth\PasswordController',
-    // ]);
 
+    //Index
     Route::get('/', 'HomeController@index');
 
-    Route::get('tech/home', 'HomeController@techIndex');
-    Route::get('user/home', 'HomeController@userIndex');
+    // name route
+    Route::get('tech/home/{id}', [
+        'as' => 'tech',
+        'uses' => 'HomeController@techIndex'
+    ]);
+    Route::get('user/home/{id}',  [
+        'as' => 'user',
+        'uses' => 'HomeController@userIndex']);
 
+    // Api Routes
     Route::resource('user', 'UserController',['only' => [
     'index', 'show'
     ]]);
@@ -62,6 +66,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('taskorder', 'TaskorderController');
 
+    //Error
     Route::get('error', function(){
         return view('errors.503');
     });

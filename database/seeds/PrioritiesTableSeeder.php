@@ -12,7 +12,12 @@ class PrioritiesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {        
-        factory(App\Priority::class, 3)->create();
+    {
+        //factory(App\Priority::class, 3)->create();
+        DB::table('priorities')->insert([
+                ["name" => "Alto", "description" => "algun texto"],
+                ["name" => "Medio", "description" => "algun texto"],
+                ["name" => "Bajo", "description" => "algun texto"],
+        ]);
     }
 }

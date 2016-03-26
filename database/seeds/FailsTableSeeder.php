@@ -11,7 +11,6 @@ class FailsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         factory(App\Fail::class, 3)->create();
     }
 }

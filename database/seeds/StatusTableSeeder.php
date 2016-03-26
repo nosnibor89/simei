@@ -12,14 +12,10 @@ class StatusTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create();
-        
-       factory(App\Status::class,3)->create([
-           
-          "name" => $faker->name,
-           "description" => $faker->paragraph(1),
-               
-          
+       DB::table('status')->insert([
+               ["name" => "Abierta", "description" => "algun texto"],
+               ["name" => "Cerrada", "description" => "algun texto"],
+               ["name" => "Pausada", "description" => "algun texto"],
        ]);
     }
 }

@@ -10,7 +10,12 @@ class ImpactsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {        
-        factory(App\Impact::class, 3)->create();
+    {
+        //factory(App\Impact::class, 3)->create();
+        DB::table('impacts')->insert([
+                ["name" => "Alto", "description" => "algun texto"],
+                ["name" => "Medio", "description" => "algun texto"],
+                ["name" => "Bajo", "description" => "algun texto"],
+        ]);
     }
 }
