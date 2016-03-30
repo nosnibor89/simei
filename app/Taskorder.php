@@ -13,4 +13,13 @@ class Taskorder extends Model
         'closedDate'
     ];
 
+    public function user($value='')
+    {
+      return $this->hasMany('\App\User','user');
+    }
+
+    public function technician($value='')
+    {
+      return $this->hasMany('\App\User','technician');
+    }
 }

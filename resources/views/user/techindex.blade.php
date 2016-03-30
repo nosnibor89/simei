@@ -103,5 +103,5 @@
 </div>
 <!-- Cerradas -->
 
-<h1>{{$id or ''}}</h1>
+<h1>{{$tasks or ''}}</h1>
 @endsection

@@ -41,8 +41,9 @@ class HomeController extends Controller
     public function techIndex($id)
     {
         if (Auth::user()->role == 'technician' ) {
-            $user = \App\User::find($id)->taskorderes;
-            return view('user.techindex',['id' => $user]);
+            // $tasks = \App\Taskorder::where('technician', Auth::user()->id);
+                        $tasks = \App\Taskorder::all();
+            return view('user.techindex',['tasks' => $tasks]);
         }
         else{
             return back()->with('error', 'Sorry, not allowed');
