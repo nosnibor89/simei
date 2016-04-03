@@ -12,14 +12,21 @@ class Taskorder extends Model
         ,'status','technician','startDate',
         'closedDate'
     ];
-
-    public function user($value='')
+    public function technician()
     {
-      return $this->hasMany('\App\User','user');
+      return $this->belongsTo('App\User', 'technician');
     }
 
-    public function technician($value='')
+    public function user()
     {
-      return $this->hasMany('\App\User','technician');
+      return $this->belongsTo('App\User','user');
+    }
+
+    public function fail(){
+        return $this->belongsTo('App\Fail', 'fail');
+    }
+
+    public function status(){
+        return $this->belongsTo('App\Status', 'status');
     }
 }

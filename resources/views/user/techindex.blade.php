@@ -15,7 +15,7 @@
                     <i class="fa fa-support fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">26</div>
+                    <div class="huge">{{$total}}</div>
                     <div>Total</div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <i class="fa fa-folder-open fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">26</div>
+                    <div class="huge">{{$open}}</div>
                     <div>Abiertas</div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     <i class="fa fa-folder fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">26</div>
+                    <div class="huge">{{$closed}}</div>
                     <div>Cerradas</div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <i class="fa fa-pause fa-5x"></i>
                 </div>
                 <div class="col-xs-9 text-right">
-                    <div class="huge">26</div>
+                    <div class="huge">{{$paused}}</div>
                     <div>Pausada</div>
                 </div>
             </div>
@@ -103,5 +103,18 @@
 </div>
 <!-- Cerradas -->
 
-<h1>{{$tasks or ''}}</h1>
+<div class="" ng-controller="TasksController">
+      @{{greeting}}
+</div>
+
+
+
+
+{{--$tasks or "no reccord"--}}
+
 @endsection
+
+@push('customscripts')
+<!-- Custom JS -->
+  <script src="{{asset('Content/angular/controllers/simei-tech-controller.js')}}" ></script>
+@endpush

@@ -38,19 +38,40 @@ class HomeController extends Controller
 
      }
 
+     //Load tech home data
     public function techIndex($id)
     {
         if (Auth::user()->role == 'technician' ) {
-            // $tasks = \App\Taskorder::where('technician', Auth::user()->id);
-                        $tasks = \App\Taskorder::all();
-            return view('user.techindex',['tasks' => $tasks]);
+
+            $totalTasks = \App\Taskorder::where('technician', $id)->get()->count();
+            $openTasks = \App\Taskorder::where([
+                ['technician', $id],
+                ['status', 1]
+                ])->get()->count();
+            $closedTasks = \App\Taskorder::where([
+                ['technician', $id],
+                ['status', 2]
+                ])->get()->count();
+            $pausedTasks = \App\Taskorder::where([
+                ['technician', $id],
+                ['status', 3]
+                ])->get()->count();
+
+            return view('user.techindex',[
+                'total' => $totalTasks,
+                'open' => $openTasks,
+                'closed' => $closedTasks,
+                'paused' => $pausedTasks
+            ]);
         }
         else{
             return back()->with('error', 'Sorry, not allowed');
         }
 
     }
+    //Load tech home data
 
+    //Load user home data
     public function userIndex($id){
 
         if (Auth::user()->role == 'user' ) {
@@ -62,4 +83,5 @@ class HomeController extends Controller
         }
 
     }
+    //Load user home data
 }

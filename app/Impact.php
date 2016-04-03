@@ -8,4 +8,10 @@ class Impact extends Model
 {
     //
      protected $fillable = ['name', 'description'];
+
+
+     public function fails()
+     {
+          return $this->hasMany('App\Fail','impact');
+     }
 }

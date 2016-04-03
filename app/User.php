@@ -26,6 +26,8 @@ class User extends Authenticatable
 
     public function taskorderes()
     {
-        return $this->hasMany('\App\Taskorder','user');
+        return $this->hasMany('App\Taskorder', 'technician');
     }
+
+
 }
