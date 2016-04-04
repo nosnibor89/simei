@@ -15,9 +15,36 @@ class TaskorderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status = 'all')
     {
-        return $tasks = Taskorder::all();
+        $id = Auth::user()->id;
+      switch (strtolower($status)) {
+        case 'all':
+          $tasks = Taskorder::where('technician', $id)->get();
+          break;
+        case 'opened':
+          $tasks = Taskorder::where([
+            ['technician', $id],
+            ['status', 1]
+          ]);
+          break;
+        case 'closed':
+          $tasks = Taskorder::where([
+            ['technician', $id],
+            ['status', 2]
+          ]);
+          break;
+        case 'paused':
+          $tasks = Taskorder::where([
+            ['technician', $id],
+            ['status', 3]
+          ]);
+          break;
+        default:
+          $tasks = Taskorder::where('technician', $id)->get();
+          break;
+      }  
+        return $tasks;
     }
 
     /**

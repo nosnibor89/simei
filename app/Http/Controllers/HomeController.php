@@ -26,8 +26,6 @@ class HomeController extends Controller
      public function index()
      {
         // return "Your are a tech";
-         //return view('home');
-         //return $user->id;
          $user = Auth::user();
          if($user->role == 'technician'){
              return redirect()->route('tech', ['id'=>$user->id]);

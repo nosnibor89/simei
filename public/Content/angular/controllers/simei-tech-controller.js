@@ -6,14 +6,12 @@
 
       //Private Method
       var onTasksComplete = function(response) {
-
         $scope.tasks = response.data;
       };
 
-  $http.get("https://api.github.com/users/nosnibor89")
-    .then(onUserComplete);
-
-  }
+  $http.get("")
+    .then(onTasksComplete);
+  };
 
   techApp.controller('TasksController', ['$scope', '$http', function($scope, $http) {
 
