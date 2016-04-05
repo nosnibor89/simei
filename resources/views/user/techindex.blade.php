@@ -106,17 +106,39 @@
   </div>
   <!-- Pausadas -->
 
-
-
       @{{greeting}}
 
-
+      <!-- Table -->
+      <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td>
+                  Titulo 1
+                </td>
+                <td>
+                  Titulo 2
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="task in tasks">
+                <td>
+                  @{{task.id}}
+                </td>
+                <td>
+                  @{{task.title}}
+                </td>
+                <td>
+                  @{{task.description}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    <!-- table -->
 </div>
 
-
-
-
-{{--$tasks or "no reccord"--}}
 
 @endsection
 
