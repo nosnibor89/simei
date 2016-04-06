@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Taskorder;
+use Auth;
 
 class TaskorderController extends Controller
 {
+    //Constructor
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +24,8 @@ class TaskorderController extends Controller
      */
     public function index($status = 'all')
     {
+
+
         $id = Auth::user()->id;
       switch (strtolower($status)) {
         case 'all':
@@ -26,24 +35,26 @@ class TaskorderController extends Controller
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 1]
-          ]);
+          ])->get();
           break;
         case 'closed':
+            $tasks = "Closedd";
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 2]
-          ]);
+          ])->get();
           break;
         case 'paused':
+            $tasks = "Pased";
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 3]
-          ]);
+          ])->get();
           break;
         default:
           $tasks = Taskorder::where('technician', $id)->get();
           break;
-      }  
+      }
         return $tasks;
     }
 

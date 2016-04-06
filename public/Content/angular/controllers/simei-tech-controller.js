@@ -1,22 +1,34 @@
 (function() {
   'use strict';
-  var techApp = angular.module('simei-tech', []);
 
-  var getUserTasks = function($scope, $http){
+  /***********Private Methods and Vars*******************/
+  var baseUrl = "http://localhost:8000/" //Probably change
 
-      //Private Method
-      var onTasksComplete = function(response) {
-        $scope.tasks = response.data;
-      };
+  var onTasksComplete = function( response, $scope) {
 
-  $http.get("")
-    .then(onTasksComplete);
+    //$scope.tasks = response.data;
+    console.log(response);
   };
 
-  techApp.controller('TasksController', ['$scope', '$http', function($scope, $http) {
+  var techApp = angular.module('simei-tech', []);
 
 
+
+  techApp.controller('TasksController',  function($scope, $http) {
 
         $scope.greeting = 'Hola!';
-  }]);
+
+
+        //Get Users task
+        $scope.getUserTasks = function(status){
+            onTasksComplete($scope);
+
+            $http.get( baseUrl + "taskorder/" + status)
+            .then(onTasksComplete);
+        }
+
+
+
+
+  });
 }());

@@ -12,6 +12,7 @@ class Taskorder extends Model
         ,'status','technician','startDate',
         'closedDate'
     ];
+
     public function technician()
     {
       return $this->belongsTo('App\User', 'technician');

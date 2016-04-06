@@ -48,7 +48,11 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'HomeController@userIndex']);
 
 
-    Route::get('taskorder/{status?}', 'TaskorderController@techIndex');
+    Route::get('taskorder/{status?}', 'TaskorderController@index');
+// Route::get('taskorder/{status?}', function($status){
+//     return "Holaaa ". $status;
+// });
+
     // Api Routes
     Route::resource('user', 'UserController',['only' => [
     'index', 'show'
