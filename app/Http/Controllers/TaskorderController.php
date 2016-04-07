@@ -24,32 +24,28 @@ class TaskorderController extends Controller
      */
     public function index($status = 'all')
     {
-
-
         $id = Auth::user()->id;
       switch (strtolower($status)) {
         case 'all':
-          $tasks = Taskorder::where('technician', $id)->get();
+          $tasks = Taskorder::where('technician', $id)->with('fail','user')->get();
           break;
         case 'opened':
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 1]
-          ])->get();
+          ])->with('fail','user')->get();
           break;
         case 'closed':
-            $tasks = "Closedd";
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 2]
-          ])->get();
+          ])->with('fail','user')->get();
           break;
         case 'paused':
-            $tasks = "Pased";
           $tasks = Taskorder::where([
             ['technician', $id],
             ['status', 3]
-          ])->get();
+          ])->with('fail','user')->get();
           break;
         default:
           $tasks = Taskorder::where('technician', $id)->get();
