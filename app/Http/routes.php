@@ -38,20 +38,31 @@ Route::group(['middleware' => ['web']], function () {
     //Index
     Route::get('/', 'HomeController@index');
 
-    // name route
+    /*
+    |--------------------------------------------------------------------------
+    | Home Routes
+    |--------------------------------------------------------------------------
+    */
+    //technician
     Route::get('tech/home/{id}', [
         'as' => 'tech',
         'uses' => 'HomeController@techIndex'
     ]);
+    //user
     Route::get('user/home/{id}',  [
         'as' => 'user',
         'uses' => 'HomeController@userIndex']);
-
-
+    /*------------------------------------------------------------------------*/
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Taskorder Routes
+    |--------------------------------------------------------------------------
+    */
+    // By Status
     Route::get('taskorder/{status?}', 'TaskorderController@index');
-// Route::get('taskorder/{status?}', function($status){
-//     return "Holaaa ". $status;
-// });
+    Route::resource('taskorder', 'TaskorderController');
+
 
     // Api Routes
     Route::resource('user', 'UserController',['only' => [
@@ -70,7 +81,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('impact', 'ImpactController',['only' => [
     'index']]);
 
-    Route::resource('taskorder', 'TaskorderController');
 
     //Error
     Route::get('error', function(){

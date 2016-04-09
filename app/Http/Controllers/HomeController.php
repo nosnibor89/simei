@@ -54,7 +54,7 @@ class HomeController extends Controller
                 ['status', 3]
                 ])->get()->count();
 
-            return view('user.techindex',[
+            return view('home.techindex',[
                 'total' => $totalTasks,
                 'open' => $openTasks,
                 'closed' => $closedTasks,
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
         if (Auth::user()->role == 'user' ) {
             //return "User";
-            return view('user.userindex', ['id' => $id]);
+            return view('home.userindex', ['id' => $id]);
         }
         else{
             return back()->with('error', 'Sorry, not allowed');
