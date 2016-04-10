@@ -37,12 +37,30 @@
 
 </head>
 
-<body ng-app="simei-tech">
+<body >
 
     <div id="wrapper">
-        @if(isset($error))
-        @include('errors.errros',['error' => $error])
+        @if(session('error'))
+        <div class="alert alert-danger" role="alert">
+         <strong>Atencion: {{ session('error') }}</strong>
+        </div>
+        @elseif(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
+
+        @if(session('notification'))
+        <div class="alert alert-success" role="success">
+         <strong>Bien: {{ session('notification') }}</strong>
+        </div>
+        @endif
+
+
         <!-- Menu and Sidebar -->
 
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -86,10 +104,10 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="morris.html">Crea Usuarios</a>
+                                    <a href="{{url('user/create')}}">Crea Usuarios</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Ver Usuarios</a>
+                                    <a href="{{url('user/index')}}">Ver Usuarios</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

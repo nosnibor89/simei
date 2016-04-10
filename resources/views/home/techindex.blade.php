@@ -6,7 +6,7 @@
 @endpush
 
 @section('content')
-<!-- /.row -->
+<!-- Welcome -->
        <div class="row">
            <div class="col-lg-12">
                <h1 class="page-header">Bienvenido
@@ -14,9 +14,9 @@
                </h1>
            </div>
        </div>
- <!-- /.row -->
+ <!-- Welcome -->
 
-<div class="" ng-controller="TasksController">
+<div class="" ng-app="simei-tech" ng-controller="TasksController">
   <div class="row">
     <!-- Total -->
     <div class="col-lg-3 col-md-6">

@@ -61,14 +61,19 @@ Route::group(['middleware' => ['web']], function () {
     //By Id
     Route::get('taskorder/show/{id}', 'TaskorderController@show');
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Routes
+    |--------------------------------------------------------------------------
+    */
+    //Create - Show Form
+    Route::get('user/create', 'UserController@create');
+    Route::post('user/store', 'UserController@store');
 
-    // Route::resource('taskorder', 'TaskorderController',['only' => [
+    // Api Routes
+    // Route::resource('user', 'UserController',['only' => [
     // 'index', 'show'
     // ]]);
-    // Api Routes
-    Route::resource('user', 'UserController',['only' => [
-    'index', 'show'
-    ]]);
 
     Route::resource('fail', 'FailController',['only' => [
     'index']]);
