@@ -15,11 +15,11 @@ class CreateFailsTable extends Migration
         Schema::create('fails', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('priority')->unsigned();
-            $table->integer('impact')->unsigned();
+            $table->integer('priority_id')->unsigned();
+            $table->integer('impact_id')->unsigned();
             $table->timestamps();
-            $table->foreign('priority')->references('id')->on('priorities');
-            $table->foreign('impact')->references('id')->on('impacts');
+            $table->foreign('priority_id')->references('id')->on('priorities');
+            $table->foreign('impact_id')->references('id')->on('impacts');
         });
     }
 

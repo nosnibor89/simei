@@ -12,6 +12,6 @@ class Impact extends Model
 
      public function fails()
      {
-          return $this->hasMany('App\Fail','impact');
+          return $this->hasMany('App\Fail');
      }
 }

@@ -14,7 +14,7 @@ class Status extends Model
 
     public function taskorder()
     {
-        return $this->hasMany('App\Taskorder', 'status');
+        return $this->hasMany('App\Taskorder');
     }
 
 }

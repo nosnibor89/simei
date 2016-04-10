@@ -1,0 +1,24 @@
+.detail-title{
+  text-align: center;
+}
+.key{
+  display: inline-block;
+  font-weight: bolder;
+}
+
+.fail-detail{
+  display: inline-block;
+  margin-left: 3em;
+  vertical-align: middle;
+}
+
+.fail-detail p{
+  margin-top: 0.5em;
+}
+
+.edit{
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

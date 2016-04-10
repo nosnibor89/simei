@@ -15,19 +15,19 @@ class Taskorder extends Model
 
     public function technician()
     {
-      return $this->belongsTo('App\User', 'technician');
+      return $this->belongsTo('App\User');
     }
 
     public function user()
     {
-      return $this->belongsTo('App\User','user');
+      return $this->belongsTo('App\User');
     }
 
     public function fail(){
-        return $this->belongsTo('App\Fail', 'fail');
+        return $this->belongsTo('App\Fail');
     }
 
     public function status(){
-        return $this->belongsTo('App\Status', 'status');
+        return $this->belongsTo('App\Status');
     }
 }

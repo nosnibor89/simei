@@ -27,28 +27,29 @@ class TaskorderController extends Controller
         $id = Auth::user()->id;
       switch (strtolower($status)) {
         case 'all':
-          $tasks = Taskorder::where('technician', $id)->with('fail','user')->get();
+          $tasks = Taskorder::where('technician_id', $id)->with('fail','user')->get();
           break;
         case 'opened':
           $tasks = Taskorder::where([
-            ['technician', $id],
-            ['status', 1]
+            ['technician_id', $id],
+            ['status_id', 1]
           ])->with('fail','user')->get();
           break;
         case 'closed':
           $tasks = Taskorder::where([
-            ['technician', $id],
-            ['status', 2]
+            ['technician_id', $id],
+            ['status_id', 2]
           ])->with('fail','user')->get();
           break;
         case 'paused':
           $tasks = Taskorder::where([
-            ['technician', $id],
-            ['status', 3]
+            ['technician_id', $id],
+            ['status_id', 3]
           ])->with('fail','user')->get();
           break;
         default:
-          $tasks = Taskorder::where('technician', $id)->get();
+        //   $tasks = Taskorder::where('technician', $id)->get();
+        $tasks = "Not Found";
           break;
       }
         return $tasks;
@@ -83,7 +84,9 @@ class TaskorderController extends Controller
      */
     public function show($id)
     {
-        return $tasks = Taskorder::find($id);
+
+         $task = Taskorder::find($id)->with('fail','user','technician')->first();
+         return view('taskorder.detail', ['task' => $task]);
     }
 
     /**

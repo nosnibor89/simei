@@ -11,6 +11,6 @@ class Priority extends Model
 
      public function fails()
      {
-          return $this->hasMany('App\Fail','priority');
+          return $this->hasMany('App\Fail');
      }
 }

@@ -24,6 +24,7 @@
 
     <!-- Custom CSS -->
     <link href="{{asset('Content/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('Content/css/site.css')}}" rel="stylesheet">
 
      @stack('customstyles')
 
@@ -55,7 +56,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @endif
-                <a class="navbar-brand" href="index">SIMEI</a>
+                <a class="navbar-brand" href="{{url('/')}}">SIMEI</a>
             </div>
             <!-- burger -->
             @if (!Auth::guest())
@@ -159,15 +160,7 @@
 
         <!-- page main content -->
         <div id="page-wrapper">
-          <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Bienvenido
-                        <img class="logo" src="{{asset('Content/img/logo-simei.png')}}" alt="Simei">
-                    </h1>
-                </div>
-            </div>
-            <!-- /.row -->
+
 
               @yield('content')
 

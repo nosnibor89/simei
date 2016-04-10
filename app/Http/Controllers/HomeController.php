@@ -40,18 +40,18 @@ class HomeController extends Controller
     {
         if (Auth::user()->role == 'technician' ) {
 
-            $totalTasks = \App\Taskorder::where('technician', $id)->get()->count();
+            $totalTasks = \App\Taskorder::where('technician_id', $id)->get()->count();
             $openTasks = \App\Taskorder::where([
-                ['technician', $id],
-                ['status', 1]
+                ['technician_id', $id],
+                ['status_id', 1]
                 ])->get()->count();
             $closedTasks = \App\Taskorder::where([
-                ['technician', $id],
-                ['status', 2]
+                ['technician_id', $id],
+                ['status_id', 2]
                 ])->get()->count();
             $pausedTasks = \App\Taskorder::where([
-                ['technician', $id],
-                ['status', 3]
+                ['technician_id', $id],
+                ['status_id', 3]
                 ])->get()->count();
 
             return view('home.techindex',[

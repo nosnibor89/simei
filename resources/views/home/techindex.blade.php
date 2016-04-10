@@ -6,7 +6,15 @@
 @endpush
 
 @section('content')
-
+<!-- /.row -->
+       <div class="row">
+           <div class="col-lg-12">
+               <h1 class="page-header">Bienvenido
+                   <img class="logo" src="{{asset('Content/img/logo-simei.png')}}" alt="Simei">
+               </h1>
+           </div>
+       </div>
+ <!-- /.row -->
 
 <div class="" ng-controller="TasksController">
   <div class="row">
@@ -108,6 +116,8 @@
     <!-- Pausadas -->
   </div>
 
+
+      <h3 class="order-title">Las Ordenes de {{Auth::user()->name}}</h3>
       <!-- Table -->
       <div id="row" >
         <div class="table-responsive">
@@ -130,7 +140,7 @@
                     Desde
                   </td>
                   <td>
-                    Ver
+                    Accion
                   </td>
                 </tr>
               </thead>
@@ -152,7 +162,8 @@
                     @{{task.startDate}}
                   </td>
                   <td>
-                    <a href="{{url('/taskorder/show')}}/@{{task.id}}"><span class="fa fa-search"></span></a>
+                    <a href="{{url('/taskorder/show')}}/@{{task.id}}" class="task-action"><span class="fa fa-search"></span></a>
+                    <a href="{{url('/taskorder/edit')}}/@{{task.id}}" class="task-action"><span class="fa fa-pencil"></span></a>
                   </td>
                 </tr>
               </tbody>

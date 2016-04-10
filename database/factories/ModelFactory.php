@@ -46,8 +46,8 @@ $factory->define(App\Priority::class, function (Faker\Generator $faker) {
 $factory->define(App\Fail::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'priority' => $faker->randomElement($array = array(1, 2)),
-        'impact' => $faker->randomElement($array = array(1, 2)),
+        'priority_id' => $faker->randomElement($array = array(1, 2)),
+        'impact_id' => $faker->randomElement($array = array(1, 2)),
     ];
 });
 
@@ -56,9 +56,9 @@ $factory->define(App\Taskorder::class, function (Faker\Generator $faker) {
         'title' => $faker->title,
         'desription' => $faker->title,
         'startDate' => $faker->dateTime($max = 'now'),
-        'user' => $faker->randomElement($array = array(1, 2)),
-        'technician' => $faker->randomElement($array = array(1, 2)),
-        'fail' => $faker->randomElement($array = array(1, 2)),
-        'status' => $faker->randomElement($array = array(1, 2)),
+        'user_id' => $faker->randomElement($array = array(1, 2)),
+        'technician_id' => $faker->randomElement($array = array(1, 2)),
+        'fail_id' => $faker->randomElement($array = array(1, 2)),
+        'status_id' => $faker->randomElement($array = array(1, 2)),
     ];
 });

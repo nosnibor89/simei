@@ -27,11 +27,8 @@ Route::get('test', function () {
 |
 */
 
-
 //Main group for my Restfull app Simei
 Route::group(['middleware' => ['web']], function () {
-
-
 
     Route::auth();
 
@@ -53,7 +50,7 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'user',
         'uses' => 'HomeController@userIndex']);
     /*------------------------------------------------------------------------*/
-    
+
     /*
     |--------------------------------------------------------------------------
     | Taskorder Routes
@@ -61,9 +58,13 @@ Route::group(['middleware' => ['web']], function () {
     */
     // By Status
     Route::get('taskorder/{status?}', 'TaskorderController@index');
-    Route::resource('taskorder', 'TaskorderController');
+    //By Id
+    Route::get('taskorder/show/{id}', 'TaskorderController@show');
 
 
+    // Route::resource('taskorder', 'TaskorderController',['only' => [
+    // 'index', 'show'
+    // ]]);
     // Api Routes
     Route::resource('user', 'UserController',['only' => [
     'index', 'show'
@@ -80,7 +81,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('impact', 'ImpactController',['only' => [
     'index']]);
-
 
     //Error
     Route::get('error', function(){

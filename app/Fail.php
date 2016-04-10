@@ -13,16 +13,16 @@ class Fail extends Model
 
     public function taskorderes()
     {
-        $this->hasMany('App\Taskorder', 'fail');
+        $this->hasMany('App\Taskorder');
     }
 
     public function priority()
     {
-        $this->belongsTo('App\Priority', 'priority');
+        $this->belongsTo('App\Priority');
     }
 
     public function impact()
     {
-        $this->belongsTo('App\Impact', 'impact');
+        $this->belongsTo('App\Impact');
     }
 }

@@ -14,19 +14,19 @@ class CreateTaskorderesTable extends Migration
     {
         Schema::create('taskorderes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('title',50);
-            $table->integer('fail')->unsigned();
+            $table->integer('fail_id')->unsigned();
             $table->string('desription', 100);
-            $table->integer('status')->unsigned();
-            $table->integer('technician')->unsigned();
+            $table->integer('status_id')->unsigned();
+            $table->integer('technician_id')->unsigned();
             $table->dateTime('startDate');
             $table->dateTime('closedDate')->nullable();
             $table->timestamps();
-            $table->foreign('user')->references('id')->on('users');
-            $table->foreign('fail')->references('id')->on('fails');
-            $table->foreign('status')->references('id')->on('status');
-            $table->foreign('technician')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('fail_id')->references('id')->on('fails');
+            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('technician_id')->references('id')->on('users');
         });
     }
 
