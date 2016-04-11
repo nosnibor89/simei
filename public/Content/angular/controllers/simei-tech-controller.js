@@ -4,11 +4,7 @@
   /***********Private Methods and Vars*******************/
   var baseUrl = "http://localhost:8000/" ;//Probably change
 
-
-
   var techApp = angular.module('simei-tech', []);
-
-
 
   techApp.controller('TasksController',  ['$scope', '$http', function($scope, $http) {
 
@@ -28,12 +24,6 @@
                     console.log(response.data);
               });
             };
-
-
-
-
-
-
 
   }]);
 }());

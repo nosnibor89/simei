@@ -66,18 +66,37 @@ class HomeController extends Controller
         }
 
     }
-    //Load tech home data
+
 
     //Load user home data
     public function userIndex($id){
 
-        if (Auth::user()->role == 'user' ) {
-            //return "User";
-            return view('home.userindex', ['id' => $id]);
-        }
-        else{
-            return back()->with('error', 'Sorry, not allowed');
-        }
+      if (Auth::user()->role == 'user' ) {
+
+          $totalTasks = \App\Taskorder::where('user_id', $id)->get()->count();
+          $openTasks = \App\Taskorder::where([
+              ['user_id', $id],
+              ['status_id', 1]
+              ])->get()->count();
+          $closedTasks = \App\Taskorder::where([
+              ['user_id', $id],
+              ['status_id', 2]
+              ])->get()->count();
+          $pausedTasks = \App\Taskorder::where([
+              ['user_id', $id],
+              ['status_id', 3]
+              ])->get()->count();
+
+          return view('home.userindex',[
+              'total' => $totalTasks,
+              'open' => $openTasks,
+              'closed' => $closedTasks,
+              'paused' => $pausedTasks
+          ]);
+      }
+      else{
+          return back()->with('error', 'Sorry, not allowed');
+      }
 
     }
     //Load user home data

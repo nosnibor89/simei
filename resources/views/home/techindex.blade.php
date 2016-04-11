@@ -163,7 +163,6 @@
                   </td>
                   <td>
                     <a href="{{url('/taskorder/show')}}/@{{task.id}}" class="task-action"><span class="fa fa-search"></span></a>
-                    <a href="{{url('/taskorder/edit')}}/@{{task.id}}" class="task-action"><span class="fa fa-pencil"></span></a>
                   </td>
                 </tr>
               </tbody>
