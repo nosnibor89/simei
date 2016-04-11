@@ -76,24 +76,43 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/edit/{id}', 'UserController@edit');
     //Update- Update user in DB
     Route::put('user/update', 'UserController@update');
+    //Delete- Delete user in DB
     Route::delete('user/destroy/{id}', 'UserController@destroy');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Fail Routes
+    |--------------------------------------------------------------------------
+    */
+    //Index - List all fails
+    Route::get('fail/index', 'FailController@index');
+    //Create - Show Form
+    Route::get('fail/create', 'FailController@create');
+    //Store - Create a fail in DB
+    Route::post('fail/store', 'FailController@store');
+    //Edit- Show form for editing
+    Route::get('fail/edit/{id}', 'FailController@edit');
+    //Update- Update fail in DB
+    Route::put('fail/update', 'FailController@update');
+    //Delete- Delete fail in DB
+    Route::delete('fail/destroy/{id}', 'FailController@destroy');
 
     // Api Routes
     // Route::resource('user', 'UserController',['only' => [
     // 'index', 'show'
     // ]]);
 
-    Route::resource('fail', 'FailController',['only' => [
-    'index']]);
+    // Route::resource('fail', 'FailController',['only' => [
+    // 'index']]);
 
-    Route::resource('status', 'StatusController',['only' => [
-    'index']]);
+    // Route::resource('status', 'StatusController',['only' => [
+    // 'index']]);
 
-    Route::resource('priority', 'PriorityController',['only' => [
-    'index']]);
-
-    Route::resource('impact', 'ImpactController',['only' => [
-    'index']]);
+    // Route::resource('priority', 'PriorityController',['only' => [
+    // 'index']]);
+    //
+    // Route::resource('impact', 'ImpactController',['only' => [
+    // 'index']]);
 
     //Error
     Route::get('error', function(){

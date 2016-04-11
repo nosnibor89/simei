@@ -34,7 +34,7 @@
             </div>
             <a href="javascript:void(0)" ng-click="getUserTasks('all')">
                 <div class="panel-footer">
-                    <span class="pull-left">Filtar Tabla</span>
+                    <span class="pull-left">Filtrar Tabla</span>
                     <span class="pull-right"><i class="fa fa-filter"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -58,7 +58,7 @@
             </div>
             <a href="javascript:void(0)" ng-click="getUserTasks('opened')">
                 <div class="panel-footer">
-                    <span class="pull-left">Filtar Tabla</span>
+                    <span class="pull-left">Filtrar Tabla</span>
                     <span class="pull-right"><i class="fa fa-filter"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -82,7 +82,7 @@
             </div>
             <a href="javascript:void(0)" ng-click="getUserTasks('closed')">
                 <div class="panel-footer">
-                    <span class="pull-left">Filtar Tabla</span>
+                    <span class="pull-left">Filtrar Tabla</span>
                     <span class="pull-right"><i class="fa fa-filter"></i></span>
                     <div class="clearfix"></div>
                 </div>
@@ -106,7 +106,7 @@
             </div>
             <a href="javascript:void(0)" ng-click="getUserTasks('paused')">
                 <div class="panel-footer">
-                    <span class="pull-left">Filtar Tabla</span>
+                    <span class="pull-left">Filtrar Tabla</span>
                     <span class="pull-right"><i class="fa fa-filter"></i></span>
                     <div class="clearfix"></div>
                 </div>

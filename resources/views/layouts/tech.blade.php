@@ -115,10 +115,10 @@
                             <a href="#"><i class="fa fa-exclamation-circle"></i> Fallas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Fallas</a>
+                                    <a href="{{url('fail/index')}}"><i class="fa fa-search"></i> Ver Fallas</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html"><i class="fa fa-plus"></i> Crear Falla</a>
+                                    <a href="{{url('fail/create')}}"><i class="fa fa-plus"></i> Crear Falla</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

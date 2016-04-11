@@ -1,15 +1,15 @@
 @extends('layouts.tech')
-@section('title', 'Usuarios - Index')
+@section('title', 'Fallas - Index')
 
 @push('customstyles')
 <!-- Custom CSS -->
-  <link href="{{asset('Content/css/user-index.css')}}" rel="stylesheet">
+  <link href="{{asset('Content/css/fail-index.css')}}" rel="stylesheet">
 @endpush
 @section('content')
 <div >
   <div class="row">
 
-    <h3>Usuarios</h3>
+    <h3>Fallas</h3>
 
 
 <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
@@ -32,34 +32,34 @@
                 Nombre
               </td>
               <td>
-                Correo
+                Descripcion
               </td>
               <td>
-                Rol
+                Impacto
               </td>
               <td>
-                Accion
+                Prioridad
               </td>
             </tr>
           </thead>
           <tbody>
-            @foreach($users as $user)
+            @foreach($fails as $fail)
               <tr>
                 <td>
-                  {{$user->id}}
+                  {{$fail->id}}
                 </td>
                 <td>
-                  {{$user->name}}
+                  {{$fail->name}}
                 </td>
                 <td>
-                  {{$user->email}}
+                  {{$fail->priority->name}}
                 </td>
                 <td>
-                  {{ $user->role == 'user' ? "Usuario" : 'Tecnico' }}
+                  {{ $fail->impact->name }}
                 </td>
                 <td>
-                  <a href="{{url('user/edit')}}/{{$user->id}}" class="task-action"><span class="fa fa-pencil"></span></a>
-                  <a href="javascript:void(0)" id="{{$user->id}}" class="task-action delete"><span class="fa fa-close" ></span></a>
+                  <a href="{{url('fail/edit')}}/{{$fail->id}}" class="task-action"><span class="fa fa-pencil"></span></a>
+                  <a href="javascript:void(0)" id="{{$fail->id}}" class="task-action delete"><span class="fa fa-close" ></span></a>
                 </td>
               </tr>
             @endforeach
@@ -76,7 +76,7 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-        <h3>Eliminar Usuario?</h3>
+        <h3>Eliminar Falla?</h3>
         <div class="buttons">
           <button type="button" id="deleteButton" class="btn btn-success btn-sm" name="button">Si </button>
           <button type="button" class="btn btn-danger btn-sm" name="button" data-dismiss="modal">No</button>
@@ -89,5 +89,5 @@
 
 @push('customscripts')
 <!-- Custom JS -->
-  <script src="{{asset('Content/js/user-index.js')}}" ></script>
+  <script src="{{asset('Content/js/fail-index.js')}}" ></script>
 @endpush

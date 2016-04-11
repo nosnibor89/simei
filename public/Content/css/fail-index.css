@@ -1,0 +1,21 @@
+h3{
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.pull-right{
+  margin-bottom: 1em;
+}
+
+.buttons{
+  width:40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
+}
+
+.buttons button{
+  margin: 0 0.5em;
+  width:35%;
+}

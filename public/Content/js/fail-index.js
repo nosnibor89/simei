@@ -1,8 +1,8 @@
 
 (function() {
   'use strict';
-  var url = 'http://localhost:8000/user/';
-  var deleteUser = function(id, token){
+  var url = 'http://localhost:8000/fail/';
+  var deleteFail = function(id, token){
 
     return $.ajax(url+"destroy/" + id,{
       headers: {'X-CSRF-TOKEN': token },
@@ -21,7 +21,7 @@
     $('#deleteModal').modal('show');
 
     $('#deleteButton').on('click', function(){
-      deleteUser(id, token).done(deleteRow(id));
+      deleteFail(id, token).done(deleteRow(id));
       $('#deleteModal').modal('hide');
     } );
 
