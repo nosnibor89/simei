@@ -70,9 +70,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/create', 'UserController@create');
     //Store - Create a user in DB
     Route::post('user/store', 'UserController@store');
-
     //Index - See all users
     Route::get('user/index', 'UserController@index');
+    //Edit- Show form for editing
+    Route::get('user/edit/{id}', 'UserController@edit');
+    //Update- Update user in DB
+    Route::put('user/update', 'UserController@update');
+    Route::delete('user/destroy/{id}', 'UserController@destroy');
+
     // Api Routes
     // Route::resource('user', 'UserController',['only' => [
     // 'index', 'show'

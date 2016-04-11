@@ -52,7 +52,6 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-
         if ($request->password == $request->passwordRepeat) {
             $user = new User();
             $user->name =  $request->name;
@@ -91,7 +90,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit', ['user' => $user]);
     }
 
     /**
@@ -101,9 +101,25 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUserRequest $request)
     {
-        //
+        if ($request->password == $request->passwordRepeat) {
+            $user = User::find($request->id);
+            $user->name =  $request->name;
+            $user->password = bcrypt($request->password);
+            $user->email = $request->email;
+            $user->role = $request->role;
+            try {
+                $user->save();
+                return redirect()->back()->with('notification', 'El usuario fue actualizado');
+            } catch (Exception $e) {
+                return redirect()->back()->with('error', "Oops, no se pudo crear el usuario. Intenta de nuevo");
+            }
+        }
+        else {
+            return redirect()->back()->with('error', "Contraseñas no coinciden");
+         }
+
     }
 
     /**
@@ -114,6 +130,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
     }
 }

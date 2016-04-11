@@ -38,6 +38,7 @@ class StoreUserRequest extends Request
           'name.min' => 'El campo nombre debe contener al menos 5 caracteres',
           'name.required'  => 'Se requiere un nombre',
           'name.max'  => 'El nombre no puede sobrepasar 100 caracteres',
+          'email.email' => 'El campo correo no corresponde con una dirección de correo válida.'
       ];
 
     }
