@@ -100,13 +100,25 @@
                         </li> -->
                         <!-- buscar -->
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="{{url('user/index')}}"><i class="fa fa-search"></i> Ver Usuarios</a>
+                              </li>
+                                <li>
+                                    <a href="{{url('user/create')}}"><i class="fa fa-plus"></i> Crea Usuarios</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-exclamation-circle"></i> Fallas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('user/create')}}">Crea Usuarios</a>
+                                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Fallas</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('user/index')}}">Ver Usuarios</a>
+                                    <a href="buttons.html"><i class="fa fa-plus"></i> Crear Falla</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -115,10 +127,10 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Indicencias<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Ver Incidencias</a>
+                                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Incidencias</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">Crear Incidencia</a>
+                                    <a href="buttons.html"><i class="fa fa-plus"></i> Crear Incidencia</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -127,7 +139,7 @@
                             <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Ver Reportes</a>
+                                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Reportes</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
