@@ -16,6 +16,11 @@
     margin-top: 0;
 }
 
+.task-action{
+    font-size: 14px;
+    margin: 0 3px;
+}
+
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;

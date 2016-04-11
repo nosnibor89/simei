@@ -25,7 +25,8 @@ class UserController extends Controller
     {
         //
         try {
-            return $users = User::all();
+             $users = User::all();
+             return view('user.index', ['users' => $users]);
         } catch (Exception $e) {
             redirect('/');
         }
@@ -52,12 +53,10 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
 
-
-
         if ($request->password == $request->passwordRepeat) {
             $user = new User();
             $user->name =  $request->name;
-            $user->password = $request->password;
+            $user->password = bcrypt($request->password);
             $user->email = $request->email;
             $user->role = $request->role;
             try {

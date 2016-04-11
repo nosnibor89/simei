@@ -68,8 +68,11 @@ Route::group(['middleware' => ['web']], function () {
     */
     //Create - Show Form
     Route::get('user/create', 'UserController@create');
+    //Store - Create a user in DB
     Route::post('user/store', 'UserController@store');
 
+    //Index - See all users
+    Route::get('user/index', 'UserController@index');
     // Api Routes
     // Route::resource('user', 'UserController',['only' => [
     // 'index', 'show'

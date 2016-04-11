@@ -19,7 +19,7 @@ class CreateTaskorderesTable extends Migration
             $table->integer('fail_id')->unsigned();
             $table->string('desription', 100);
             $table->integer('status_id')->unsigned();
-            $table->integer('technician_id')->unsigned();
+            $table->integer('technician_id')->unsigned()->nullable();
             $table->dateTime('startDate');
             $table->dateTime('closedDate')->nullable();
             $table->timestamps();

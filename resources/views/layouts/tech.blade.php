@@ -59,8 +59,6 @@
          <strong>Bien: {{ session('notification') }}</strong>
         </div>
         @endif
-
-
         <!-- Menu and Sidebar -->
 
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -85,21 +83,22 @@
             <div class="navbar-default sidebar " role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <!-- buscar -->
+                        <!-- <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control input-sm" placeholder="Buscar...">
-                                <!-- <div class="input-group-addon"> -->
+                                <input type="text" class="form-control input-sm" placeholder="Buscar ordenes...">
+
                                     <div class="input-group-btn">
                                         <button class="btn btn-default btn-search" type="button">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </div>
 
-                                <!-- </div> -->
 
                             </div>
-                            <!-- /input-group -->
-                        </li>
+
+                        </li> -->
+                        <!-- buscar -->
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
