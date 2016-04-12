@@ -22,6 +22,7 @@ class CreateTaskorderesTable extends Migration
             $table->integer('technician_id')->unsigned()->nullable();
             $table->dateTime('startDate');
             $table->dateTime('closedDate')->nullable();
+            $table->text('resolution')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('fail_id')->references('id')->on('fails');

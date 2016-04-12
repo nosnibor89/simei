@@ -1,4 +1,4 @@
-@extends('layouts.tech')
+@extends('layouts.user')
 @section('title', 'Index')
 @push('customstyles')
 <!-- Custom CSS -->
@@ -131,7 +131,7 @@
                     Titulo
                   </td>
                   <td>
-                    Usuario
+                    Tecnico
                   </td>
                   <td>
                     Falla
@@ -153,7 +153,7 @@
                     @{{task.title}}
                   </td>
                   <td>
-                    @{{task.user.name}}
+                    @{{task.technician.name}}
                   </td>
                   <td>
                     @{{task.fail.name}}
@@ -163,7 +163,6 @@
                   </td>
                   <td>
                     <a href="{{url('/taskorder/show')}}/@{{task.id}}" class="task-action"><span class="fa fa-search"></span></a>
-                    <a href="{{url('/taskorder/edit')}}/@{{task.id}}" class="task-action"><span class="fa fa-pencil"></span></a>
                   </td>
                 </tr>
               </tbody>

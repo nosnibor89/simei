@@ -40,11 +40,15 @@
         <div class="list-group-item">
         <p class="key">Descripcion:</p>  {{$task->desription}}
         </div>
+        <div class="list-group-item">
+        <p class="key">Nota de Resolucion:</p>  {{$task->resolution}}
+        </div>
 
       </div>
       <br>
+      @if(Auth::user()->role == "technician")
       <a href="{{url('/taskorder/edit')}}/{{$task->id}}" class="btn btn-info btn-sm edit">Editar</a>
-
+      @endif
     </div>
 </div>
 
