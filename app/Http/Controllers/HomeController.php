@@ -140,7 +140,7 @@ class HomeController extends Controller
                     DB::raw('users.name as name'),
                     DB::raw('COUNT(*) as value')
                     ]);
-          return json_encode($techTaks);
+          return $techTaks;
         // return view('reports.index', ['techTaks' => json_encode($techTaks)]);
       }
 }

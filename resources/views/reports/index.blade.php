@@ -10,6 +10,7 @@
   <div class="row">
 
     <div class="col-md-6">
+      <h3>Ordenes Por Tecnico</h3>
         <div id="orders-by-tech-chart">
 
         </div>
@@ -33,6 +34,7 @@
     var url = "http://localhost:8000/reportajax";
     $.ajax(url,{
       success: function(data){
+        console.log(data);
         new Morris.Bar({
             // ID of the element in which to draw the chart.
             element: 'orders-by-tech-chart',
