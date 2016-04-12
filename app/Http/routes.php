@@ -59,7 +59,16 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('taskorder/create/', 'TaskorderController@create');
     //Store - Create a user in DB
     Route::post('taskorder/store/', 'TaskorderController@store');
+    //Return all tasks
     Route::get('taskorder/all', 'TaskorderController@all');
+    //Show form to assign a tech
+    Route::get('taskorder/assign/{id}', 'TaskorderController@assign');
+    //Update task and assign a tech
+    Route::post('taskorder/addtech', 'TaskorderController@addtech');
+    //Show form Close task by tech
+    Route::get('taskorder/close/{id}', 'TaskorderController@close');
+    //Show form Close task by tech
+    Route::post('taskorder/closeorder', 'TaskorderController@closeorder');
     /*
     |--------------------------------------------------------------------------
     | User Routes

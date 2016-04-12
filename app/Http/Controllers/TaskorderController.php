@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\StoreTaskorderRequest;
+use App\Http\Requests\CloseTaskRequest;
 use App\Http\Controllers\Controller;
+use App\User;
 use App\Fail;
 use App\Taskorder;
 use Auth;
@@ -67,6 +69,98 @@ class TaskorderController extends Controller
         //return $tasks;
         return view('taskorder.all', ['tasks' => $tasks]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function assign($id)
+    {
+        $techs = User::where('role','technician')->get();
+        return view('taskorder.assign', [
+          'techs' => $techs,
+          'orderId' => $id
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addtech(Request $request)
+    {
+      $task = Taskorder::find($request->orderId);
+      $task->technician_id = $request->techId;
+      $user = User::find($task->user_id);
+      $tech = User::find($request->techId);
+      try {
+        $task->save();
+        //Email to user
+        Mail::send('emails.assignuser', ['orderId' => $request->orderId, 'tech' => $tech ], function($m) use($user){
+           $m->from('simei@simei.com', 'Simei');
+           $m->to($user->email, $user->name)->subject('Orden Asignada');
+          });
+          //Email to tech
+          Mail::send('emails.assigntech', ['orderId' => $request->orderId, 'tech' => $tech ], function($m) use($tech){
+             $m->from('simei@simei.com', 'Simei');
+             $m->to($tech->email, $tech->name)->subject('Orden Asignada');
+            });
+        return redirect('taskorder/all')->with('notification', 'Tecnico asignado a la order Nro. '.$request->orderId);
+      } catch (Exception $e) {
+          return redirect()->back()->with('error', 'No se pudo asignar un tecnico. Intente de nuevo');
+      }
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function close($id)
+    {
+      $task = Taskorder::find($id);
+      return view('taskorder.close', [
+        'task' => $task,
+        'id' => $id
+      ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function closeorder(CloseTaskRequest $request)
+    {
+      $task = Taskorder::find($request->id);
+      $task->resolution = $request->resolution;
+      $task->closedDate = Carbon::now();
+      $task->status_id = 2;
+
+      $user = User::find($task->user_id);
+      $tech = User::find($task->technician_id);
+      try {
+        $task->save();
+
+        //Email to user
+        Mail::send('emails.closeuser', ['orderId' => $request->id, 'tech' => $tech, 'user' => $user ], function($m) use($user){
+           $m->from('simei@simei.com', 'Simei');
+           $m->to($user->email, $user->name)->subject('Orden Cerrada');
+          });
+
+        return redirect('taskorder/all')->with('notification', 'Orden Cerrada con exito. ');
+      } catch (Exception $e) {
+        return redirect()->back()->with('error', 'No se pudo cerrar la orden. Intente de nuevo');
+      }
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -100,14 +194,10 @@ class TaskorderController extends Controller
             $orderId = $taskorder->id;
 
             Mail::send('emails.ordercreate', ['orderId' => $orderId ], function($m){
-               $m->from('hello@app.com', 'Your Application');
+               $m->from('simei@simei.com', 'Simei');
 
                $m->to(auth()->user()->email, auth()->user()->name)->subject('Orden Creada');
            });
-
-
-
-
 
             return redirect('taskorder/all')->with('notification', 'La incidencia fue creada');
         } catch (Exception $e) {
@@ -162,7 +252,4 @@ class TaskorderController extends Controller
         //
     }
 
-    public function test(){
-        return "test";
-    }
 }
