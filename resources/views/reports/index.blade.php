@@ -41,7 +41,7 @@
             data: data,
             xkey: 'name',
             ykeys: ['value'],
-            labels: ['name']
+            labels: ['Ordenes']
         });
       }
     });
