@@ -143,10 +143,19 @@
             <!-- /.nav-second-level -->
         </li>
         <li>
+            <a href="#"><i class="fa fa-desktop fa-fw"></i> TMS<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li>
+                    <a href="{{url('home/tms')}}"><i class="fa fa-link"></i> Conexion a TMS</a>
+                </li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
+        <li>
             <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reportes<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="#"><i class="fa fa-search"></i> Ver Reportes</a>
+                    <a href="{{url('report')}}"><i class="fa fa-search"></i> Ver Reportes</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->
@@ -162,10 +171,19 @@
             <!-- /.nav-second-level -->
         </li>
         <li>
+            <a href="#"><i class="fa fa-desktop fa-fw"></i> TMS<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li>
+                    <a href="{{url('home/tms')}}"><i class="fa fa-link"></i> Conexion a TMS</a>
+                </li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
+        <li>
             <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reportes<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="#"><i class="fa fa-search"></i> Ver Reportes</a>
+                    <a href="{{url('report')}}"><i class="fa fa-search"></i> Ver Reportes</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->
@@ -211,14 +229,15 @@
 <script src="{{asset('Content/angular/angular.min.js')}}"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+      <script src="{{asset('bower_components/bootstrap/js/tooltip.js')}}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{asset('bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
 
 <!-- Morris Charts JavaScript -->
-<!-- <script src="../bower_components/raphael/raphael-min.js"></script>
+<script src="../bower_components/raphael/raphael-min.js"></script>
 <script src="../bower_components/morrisjs/morris.min.js"></script>
-<script src="../js/morris-data.js"></script> -->
+<!-- <script src="../js/morris-data.js"></script> -->
 
 <!-- Custom Theme JavaScript -->
 <script src="{{asset('Content/js/sb-admin-2.js')}}"></script>

@@ -103,9 +103,10 @@
     <!-- jQuery -->
     <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
 
-    
+
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+      <script src="{{asset('bower_components/bootstrap/js/tooltip.js')}}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{asset('bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>

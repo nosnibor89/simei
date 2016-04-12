@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
+use App\Taskorder;
+use DB;
 
 class HomeController extends Controller
 {
@@ -99,5 +101,46 @@ class HomeController extends Controller
       }
 
     }
-    //Load user home data
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function tms()
+     {
+         return view('home.tms');
+
+     }
+
+     /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Http\Response
+      */
+      public function report()
+      {
+          // $techTaks =  DB::table('taskorderes')
+          //           ->join('users', 'users.id', '=', 'taskorderes.technician_id')->groupBy('technician_id')->get([
+          //           DB::raw('users.name as name'),
+          //           DB::raw('COUNT(*) as value')
+          //           ]);
+          // return json_encode($techTaks);
+         return view('reports.index');
+      }
+     /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Http\Response
+      */
+      public function reportajax()
+      {
+          $techTaks =  DB::table('taskorderes')
+                    ->join('users', 'users.id', '=', 'taskorderes.technician_id')->groupBy('technician_id')->get([
+                    DB::raw('users.name as name'),
+                    DB::raw('COUNT(*) as value')
+                    ]);
+          return json_encode($techTaks);
+        // return view('reports.index', ['techTaks' => json_encode($techTaks)]);
+      }
 }

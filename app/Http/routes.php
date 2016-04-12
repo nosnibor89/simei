@@ -44,6 +44,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/home/{id}',  [
         'as' => 'user',
         'uses' => 'HomeController@userIndex']);
+
+    //TMS
+    Route::get('home/tms', 'HomeController@tms');
+
+    //TMS
+    Route::get('report', 'HomeController@report');
+      Route::get('reportajax', 'HomeController@reportajax');
+
     /*------------------------------------------------------------------------*/
 
     /*
