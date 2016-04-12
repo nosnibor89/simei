@@ -58,8 +58,8 @@
                   {{ $fail->impact->name }}
                 </td>
                 <td>
-                  <a href="{{url('fail/edit')}}/{{$fail->id}}" class="task-action"><span class="fa fa-pencil"></span></a>
-                  <a href="javascript:void(0)" id="{{$fail->id}}" class="task-action delete"><span class="fa fa-close" ></span></a>
+                  <a href="{{url('fail/edit')}}/{{$fail->id}}" class="task-action" data-toggle="tooltip" data-placement="top" title="Editar"><span class="fa fa-pencil"></span></a>
+                  <a href="javascript:void(0)" id="{{$fail->id}}" class="task-action delete" data-toggle="tooltip" data-placement="top" title="Eliminar"><span class="fa fa-close" ></span></a>
                 </td>
               </tr>
             @endforeach

@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('test', function () {
-    return view('test');
-});
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -32,14 +27,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
 
-    //Index
-    Route::get('/', 'HomeController@index');
-
     /*
     |--------------------------------------------------------------------------
     | Home Routes
     |--------------------------------------------------------------------------
     */
+    //Index
+    Route::get('/', 'HomeController@index');
+
     //technician
     Route::get('tech/home/{id}', [
         'as' => 'tech',
@@ -57,10 +52,14 @@ Route::group(['middleware' => ['web']], function () {
     |--------------------------------------------------------------------------
     */
     // By Status
-    Route::get('taskorder/{status?}', 'TaskorderController@index');
+    Route::get('taskorder/index/{status?}', 'TaskorderController@index');
     //By Id
     Route::get('taskorder/show/{id}', 'TaskorderController@show');
-
+    //Create - Show Form
+    Route::get('taskorder/create/', 'TaskorderController@create');
+    //Store - Create a user in DB
+    Route::post('taskorder/store/', 'TaskorderController@store');
+    Route::get('taskorder/all', 'TaskorderController@all');
     /*
     |--------------------------------------------------------------------------
     | User Routes
@@ -97,22 +96,7 @@ Route::group(['middleware' => ['web']], function () {
     //Delete- Delete fail in DB
     Route::delete('fail/destroy/{id}', 'FailController@destroy');
 
-    // Api Routes
-    // Route::resource('user', 'UserController',['only' => [
-    // 'index', 'show'
-    // ]]);
 
-    // Route::resource('fail', 'FailController',['only' => [
-    // 'index']]);
-
-    // Route::resource('status', 'StatusController',['only' => [
-    // 'index']]);
-
-    // Route::resource('priority', 'PriorityController',['only' => [
-    // 'index']]);
-    //
-    // Route::resource('impact', 'ImpactController',['only' => [
-    // 'index']]);
 
     //Error
     Route::get('error', function(){

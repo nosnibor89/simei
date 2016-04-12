@@ -15,13 +15,6 @@
 <input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
     <div class="col-md-10 col-md-offset-1">
       <div class="table-responsive">
-        <!-- <div class="pull-right">
-          <div class="btn-group">
-            <button type="button" class="btn btn-info btn-filter btn-sm" data-target="pagado">Todos</button>
-            <button type="button" class="btn btn-default btn-filter btn-sm" data-target="pendiente">Tecnicos</button>
-            <button type="button" class="btn btn-default btn-filter btn-sm" data-target="cancelado">Usuarios</button>
-          </div>
-        </div> -->
         <table class="table table-hover">
           <thead>
             <tr class="info">
@@ -58,8 +51,8 @@
                   {{ $user->role == 'user' ? "Usuario" : 'Tecnico' }}
                 </td>
                 <td>
-                  <a href="{{url('user/edit')}}/{{$user->id}}" class="task-action"><span class="fa fa-pencil"></span></a>
-                  <a href="javascript:void(0)" id="{{$user->id}}" class="task-action delete"><span class="fa fa-close" ></span></a>
+                  <a href="{{url('user/edit')}}/{{$user->id}}" class="task-action" data-toggle="tooltip" data-placement="top" title="Editar"><span class="fa fa-pencil"></span></a>
+                  <a href="javascript:void(0)" id="{{$user->id}}" class="task-action delete" data-toggle="tooltip" data-placement="top" title="Eliminar"><span class="fa fa-close" ></span></a>
                 </td>
               </tr>
             @endforeach

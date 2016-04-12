@@ -128,11 +128,17 @@
             <a href="#"><i class="fa fa-wrench fa-fw"></i> Indicencias<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Incidencias</a>
+                    <a href="{{url('taskorder/all')}}"><i class="fa fa-search"></i> Ver Incidencias</a>
                 </li>
                 <li>
-                    <a href="buttons.html"><i class="fa fa-plus"></i> Crear Incidencia</a>
+                    <a href="{{url('taskorder/create')}}"><i class="fa fa-plus"></i> Crear Incidencia</a>
                 </li>
+                <!-- <li>
+                    <a href="{{url('taskorder/assign')}}"><i class="fa fa-user"></i> Asignar Tecnico</a>
+                </li>
+                <li>
+                    <a href="{{url('taskorder/close')}}"><i class="fa fa-folder"></i> Cerrar Indicencia</a>
+                </li> -->
             </ul>
             <!-- /.nav-second-level -->
         </li>
@@ -140,7 +146,7 @@
             <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reportes<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Reportes</a>
+                    <a href="#"><i class="fa fa-search"></i> Ver Reportes</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->
@@ -150,7 +156,7 @@
             <a href="#"><i class="fa fa-wrench fa-fw"></i> Indicencias<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="buttons.html"><i class="fa fa-plus"></i> Crear Incidencia</a>
+                    <a href="{{url('taskorder/create')}}"><i class="fa fa-plus"></i> Crear Incidencia</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->
@@ -159,7 +165,7 @@
             <a href="#"><i class="fa fa-line-chart fa-fw"></i> Reportes<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li>
-                    <a href="panels-wells.html"><i class="fa fa-search"></i> Ver Reportes</a>
+                    <a href="#"><i class="fa fa-search"></i> Ver Reportes</a>
                 </li>
             </ul>
             <!-- /.nav-second-level -->

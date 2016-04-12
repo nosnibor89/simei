@@ -162,8 +162,8 @@
               @{{task.startDate}}
             </td>
             <td>
-              <a href="{{url('/taskorder/show')}}/@{{task.id}}" class="task-action"><span class="fa fa-search"></span></a>
-              <a href="{{url('/taskorder/edit')}}/@{{task.id}}" class="task-action"><span class="fa fa-pencil"></span></a>
+              <a href="{{url('/taskorder/show')}}/@{{task.id}}" class="task-action" data-toggle="tooltip" data-placement="top" title="Ver"><span class="fa fa-search"></span></a>
+              <a href="{{url('/taskorder/edit')}}/@{{task.id}}" class="task-action"><span class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Editar"></span></a>
             </td>
           </tr>
         </tbody>

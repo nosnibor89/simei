@@ -42,7 +42,7 @@
         </div>
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <button type="reset" class="btn btn-default btn-sm">Cancelar</button>
+            <button type="reset" class="btn btn-default btn-sm" id="cancel">Cancelar</button>
             <button type="submit" class="btn btn-success btn-sm">Actualizar</button>
           </div>
         </div>
@@ -57,4 +57,5 @@
 @push('customscripts')
 <!-- Custom JS -->
   <!-- <script src="{{asset('Content/angular/controllers/simei-tech-controller.js')}}" ></script> -->
+    <script src="{{asset('Content/js/clear.js')}}" ></script>
 @endpush

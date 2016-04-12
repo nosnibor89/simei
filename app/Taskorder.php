@@ -10,7 +10,7 @@ class Taskorder extends Model
     protected $fillable = [
         'user', 'title', 'fail','desription'
         ,'status','technician','startDate',
-        'closedDate'
+        'closedDate','resolution'
     ];
 
     public function technician()
