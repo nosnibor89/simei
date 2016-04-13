@@ -19,3 +19,14 @@ h3{
   margin: 0 0.5em;
   width:35%;
 }
+
+.center-block{
+  text-align: center;
+}
+
+#deleteError .modal-content button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}

@@ -71,8 +71,7 @@
   </div>
 </div>
 
-<!-- Modal - Delete User Confirmation -->
-
+<!-- Modal - Delete Fail Confirmation -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -84,7 +83,21 @@
     </div>
   </div>
 </div>
-<!-- Modal - Delete User Confirmation -->
+<!-- Modal - Delete Fail Confirmation -->
+
+<!-- Modal - Delete Error Message -->
+<div class="modal fade" id="deleteError" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <h3>No se puede eliminar</h3>
+        <p class="center-block">
+          Esta falla esta asociada a una o mas incidencias. Por favor contacta en al administrador del sistema
+        </p>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
+<!-- Modal - Delete Error Message -->
 @endsection
 
 @push('customscripts')

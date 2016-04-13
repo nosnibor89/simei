@@ -1,12 +1,17 @@
-
 (function() {
   'use strict';
   var url = 'http://localhost:8000/fail/';
   var deleteFail = function(id, token){
 
-    return $.ajax(url+"destroy/" + id,{
-      headers: {'X-CSRF-TOKEN': token },
-      type: 'Delete'
+    $.ajax(url+"destroy/" + id,{
+        headers: {'X-CSRF-TOKEN': token },
+        type: 'Delete',
+        error: function(result) {
+          $('#deleteError').modal('show');
+        },
+        success:function(result) {
+          deleteRow(id);
+        }
     } );
   };
 
@@ -18,13 +23,12 @@
   $('.delete').on('click',function(e) {
     var id = this.id;
     var token = $('#token').val();
+
     $('#deleteModal').modal('show');
 
     $('#deleteButton').on('click', function(){
-      deleteFail(id, token).done(deleteRow(id));
+      deleteFail(id, token);
       $('#deleteModal').modal('hide');
-    } );
-
-  });
-
+    });
+    });
 }());
