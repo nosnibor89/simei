@@ -219,37 +219,19 @@ class TaskorderController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the application dashboard.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+     public function reporttechorders()
+     {
+         $techTaks =  DB::table('taskorderes')
+                   ->join('users', 'users.id', '=', 'taskorderes.technician_id')->groupBy('technician_id')->get([
+                   DB::raw('users.name as name'),
+                   DB::raw('COUNT(*) as value')
+                   ]);
+         return $techTaks;
+     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
 }

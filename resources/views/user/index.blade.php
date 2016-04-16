@@ -5,6 +5,7 @@
 <!-- Custom CSS -->
   <link href="{{asset('Content/css/user-index.css')}}" rel="stylesheet">
 @endpush
+
 @section('content')
 <div >
   <div class="row">

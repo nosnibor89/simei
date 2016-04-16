@@ -48,9 +48,8 @@ Route::group(['middleware' => ['web']], function () {
     //TMS
     Route::get('home/tms', 'HomeController@tms');
 
-    //TMS
+    //Reports
     Route::get('report', 'HomeController@report');
-      Route::get('reportajax', 'HomeController@reportajax');
 
     /*------------------------------------------------------------------------*/
 
@@ -77,6 +76,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('taskorder/close/{id}', 'TaskorderController@close');
     //Show form Close task by tech
     Route::post('taskorder/closeorder', 'TaskorderController@closeorder');
+    //Get orders count by tech
+    Route::get('reporttechorders', 'TaskorderController@reporttechorders');
     /*
     |--------------------------------------------------------------------------
     | User Routes

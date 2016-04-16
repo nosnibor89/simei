@@ -1,9 +1,9 @@
 @extends('layouts.tech')
-@section('title', 'Usuarios - Index')
+@section('title', 'Reportes')
 
 @push('customstyles')
 <!-- Custom CSS -->
-  <link href="{{asset('Content/css/user-index.css')}}" rel="stylesheet">
+  <!-- <link href="{{asset('Content/css/user-index.css')}}" rel="stylesheet"> -->
 @endpush
 @section('content')
 
@@ -28,33 +28,9 @@
 
 @push('customscripts')
 <!-- Custom JS -->
-  <!-- <script src="{{asset('Content/js/user-index.js')}}" ></script> -->
-  <script>
-    var gra = '';
-    var url = "http://localhost:8000/reportajax";
-    $.ajax(url,{
-      success: function(data){
-        console.log(data);
-        new Morris.Bar({
-            // ID of the element in which to draw the chart.
-            element: 'orders-by-tech-chart',
-            data: data,
-            xkey: 'name',
-            ykeys: ['value'],
-            labels: ['Ordenes']
-        });
-      }
-    });
-
-      // var info = JSON.parse(gra);
-      // console.log(gra);
-      // new Morris.Bar({
-      //     // ID of the element in which to draw the chart.
-      //     element: 'orders-by-tech-chart',
-      //     data: info,
-      //     xkey: 'name',
-      //     ykeys: ['value'],
-      //     labels: ['name']
-      // });
+  <script src="{{asset('Content/js/report.js')}}" ></script>
+  <script type="text/javascript">
+    alert('hosdf');
   </script>
+
 @endpush
