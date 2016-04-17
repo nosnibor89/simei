@@ -11,33 +11,33 @@ use DB;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     public function index()
-     {
-         $user = Auth::user();
-         if($user->role == 'technician'){
-             return redirect()->route('tech', ['id'=>$user->id]);
-         }
-         else{
+    * Show the application dashboard.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function index()
+    {
+        $user = Auth::user();
+        if($user->role == 'technician'){
+            return redirect()->route('tech', ['id'=>$user->id]);
+        }
+        else{
             return redirect()->route('user',['id'=>$user->id]);
-         }
+        }
 
-     }
+    }
 
-     //Load tech home data
+    //Load tech home data
     public function techIndex($id)
     {
         if (Auth::user()->role == 'technician' ) {
@@ -47,80 +47,80 @@ class HomeController extends Controller
                 ['technician_id', $id],
                 ['status_id', 1]
                 ])->get()->count();
-            $closedTasks = \App\Taskorder::where([
-                ['technician_id', $id],
-                ['status_id', 2]
-                ])->get()->count();
-            $pausedTasks = \App\Taskorder::where([
-                ['technician_id', $id],
-                ['status_id', 3]
-                ])->get()->count();
+                $closedTasks = \App\Taskorder::where([
+                    ['technician_id', $id],
+                    ['status_id', 2]
+                    ])->get()->count();
+                    $pausedTasks = \App\Taskorder::where([
+                        ['technician_id', $id],
+                        ['status_id', 3]
+                        ])->get()->count();
 
-            return view('home.techindex',[
-                'total' => $totalTasks,
-                'open' => $openTasks,
-                'closed' => $closedTasks,
-                'paused' => $pausedTasks
-            ]);
-        }
-        else{
-            return back()->with('error', 'Sorry, not allowed');
-        }
+                        return view('home.techindex',[
+                            'total' => $totalTasks,
+                            'open' => $openTasks,
+                            'closed' => $closedTasks,
+                            'paused' => $pausedTasks
+                        ]);
+                    }
+                    else{
+                        return back()->with('error', 'Sorry, not allowed');
+                    }
 
-    }
+                }
 
 
-    //Load user home data
-    public function userIndex($id){
+                //Load user home data
+                public function userIndex($id){
 
-      if (Auth::user()->role == 'user' ) {
+                    if (Auth::user()->role == 'user' ) {
 
-          $totalTasks = \App\Taskorder::where('user_id', $id)->get()->count();
-          $openTasks = \App\Taskorder::where([
-              ['user_id', $id],
-              ['status_id', 1]
-              ])->get()->count();
-          $closedTasks = \App\Taskorder::where([
-              ['user_id', $id],
-              ['status_id', 2]
-              ])->get()->count();
-          $pausedTasks = \App\Taskorder::where([
-              ['user_id', $id],
-              ['status_id', 3]
-              ])->get()->count();
+                        $totalTasks = \App\Taskorder::where('user_id', $id)->get()->count();
+                        $openTasks = \App\Taskorder::where([
+                            ['user_id', $id],
+                            ['status_id', 1]
+                            ])->get()->count();
+                            $closedTasks = \App\Taskorder::where([
+                                ['user_id', $id],
+                                ['status_id', 2]
+                                ])->get()->count();
+                                $pausedTasks = \App\Taskorder::where([
+                                    ['user_id', $id],
+                                    ['status_id', 3]
+                                    ])->get()->count();
 
-          return view('home.userindex',[
-              'total' => $totalTasks,
-              'open' => $openTasks,
-              'closed' => $closedTasks,
-              'paused' => $pausedTasks
-          ]);
-      }
-      else{
-          return back()->with('error', 'Sorry, not allowed');
-      }
+                                    return view('home.userindex',[
+                                        'total' => $totalTasks,
+                                        'open' => $openTasks,
+                                        'closed' => $closedTasks,
+                                        'paused' => $pausedTasks
+                                    ]);
+                                }
+                                else{
+                                    return back()->with('error', 'Sorry, not allowed');
+                                }
 
-    }
+                            }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-     public function tms()
-     {
-         return view('home.tms');
+                            /**
+                            * Show the application dashboard.
+                            *
+                            * @return \Illuminate\Http\Response
+                            */
+                            public function tms()
+                            {
+                                return view('home.tms');
 
-     }
+                            }
 
-     /**
-      * Show the application dashboard.
-      *
-      * @return \Illuminate\Http\Response
-      */
-      public function report()
-      {
-         return view('reports.index');
-      }
+                            /**
+                            * Show the application dashboard.
+                            *
+                            * @return \Illuminate\Http\Response
+                            */
+                            public function report()
+                            {
+                                return view('reports.index');
+                            }
 
-}
+                        }

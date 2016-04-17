@@ -3,7 +3,7 @@
 
 @push('customstyles')
 <!-- Custom CSS -->
-  <!-- <link href="{{asset('Content/css/user-index.css')}}" rel="stylesheet"> -->
+  <link href="{{asset('Content/css/reports.css')}}" rel="stylesheet">
 @endpush
 @section('content')
 
@@ -11,12 +11,13 @@
 
     <div class="col-md-6">
       <h3>Ordenes Por Tecnico</h3>
-        <div id="orders-by-tech-chart">
+        <div id="orders-by-tech-chart" class="chart">
 
         </div>
     </div>
     <div class="col-md-6">
-      <div id="orders-by-impacts">
+      <h3>Ordenes Por Impacto</h3>
+      <div id="orders-by-impacts" class="chart">
 
       </div>
     </div>
@@ -29,8 +30,6 @@
 @push('customscripts')
 <!-- Custom JS -->
   <script src="{{asset('Content/js/report.js')}}" ></script>
-  <script type="text/javascript">
-    alert('hosdf');
-  </script>
+
 
 @endpush

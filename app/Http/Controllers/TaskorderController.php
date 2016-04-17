@@ -14,6 +14,7 @@ use App\Taskorder;
 use Auth;
 use Carbon\Carbon;
 use Mail;
+use DB;
 
 class TaskorderController extends Controller
 {
@@ -199,7 +200,7 @@ class TaskorderController extends Controller
                $m->to(auth()->user()->email, auth()->user()->name)->subject('Orden Creada');
            });
 
-            return redirect('taskorder/all')->with('notification', 'La incidencia fue creada');
+            return redirect()->back()->with('notification', 'La incidencia fue creada');
         } catch (Exception $e) {
             return redirect()->back()->with("error", "No se puedo crear la incidencia. Intente de nuevo");
         }
@@ -214,7 +215,7 @@ class TaskorderController extends Controller
      */
     public function show($id)
     {
-         $task = Taskorder::find($id)->with('fail','user','technician')->first();
+         $task = Taskorder::with('fail','user','technician')->find($id);
          return view('taskorder.detail', ['task' => $task]);
     }
 
@@ -233,5 +234,20 @@ class TaskorderController extends Controller
          return $techTaks;
      }
 
+     /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Http\Response
+      */
+      public function reportipmactorders()
+      {
+          $impactTaks =  DB::table('taskorderes')
+                    ->join('fails', 'fails.id', '=', 'taskorderes.fail_id')->groupBy('impact_id')
+                    ->join('impacts', 'impacts.id', '=', 'fails.impact_id')->get([
+                    DB::raw('impacts.name as label'),
+                    DB::raw('COUNT(*) as value')
+                    ]);
+          return $impactTaks;
+      }
 
 }

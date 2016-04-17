@@ -178,5 +178,5 @@
 
 @push('customscripts')
 <!-- Custom JS -->
-  <script src="{{asset('Content/angular/controllers/simei-tech-controller.js')}}" ></script>
+<script src="{{asset('Content/angular/controllers/simei-tech-controller.js')}}" ></script>
 @endpush
